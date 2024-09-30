@@ -68,7 +68,7 @@
 
         //trim para quitar espacios de delante y detras
 
-        //explode cçrta una cadena y devuelve un array de secciones de dicha cadena
+        //explode corta una cadena y devuelve un array de secciones de dicha cadena
         echo "<br/>";
         var_dump( explode(" ",$texto));
 
