@@ -16,12 +16,12 @@
             <div class="mb-3 mt-4 col-sm-5">
                 <label for="numero1" class="form-label">Primer número</label>
                 <input type="float" class="form-control input-small" id="numero1" name="numero1" aria-describedby="Primer número">
-                
+
             </div>
             <div class="mb-3 mt-4 col-sm-5">
                 <label for="numero2" class="form-label">Segundo número</label>
                 <input type="float" class="form-control input-small" id="numero2" name="numero2" aria-describedby="Segundo número">
-                
+
             </div>
             <button type="submit" class="btn btn-primary">Redondear</button>
         </form>

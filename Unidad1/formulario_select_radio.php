@@ -11,7 +11,14 @@
     <?php
     print("Esto es lo que me llega por Get <br/>");
 
-    print (int)("$_GET[numero1]") . "<br/>" . round("$_GET[numero2]", 1, PHP_ROUND_HALF_UP);
+    print("$_GET[nif]");
+    "<br/>";
+    print("$_GET[telefono]");
+    "<br/>";
+    print("$_GET[estado_social]");
+    "<br/>";
+    print("$_GET[vehiculo]");
+    "<br/>";
     ?>
 </body>
 
