@@ -10,8 +10,7 @@
 
 <body>
     <div class="container-lg">
-        <!-- Para enviar u¡los datos de un formulario hay que definirlo el modo de envio, get mete las variables en la url, post
-         las lleva invisibles, con action marcamos la pagina de destino de los datos-->
+
         <form method="get" action="redondeo.php">
             <div class="mb-3 mt-4 col-sm-5">
                 <label for="numero1" class="form-label">Primer número</label>

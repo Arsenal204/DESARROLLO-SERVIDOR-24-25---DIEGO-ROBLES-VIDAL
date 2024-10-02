@@ -8,6 +8,9 @@
 <body>
 <?php
 //Recibo los datos del formulario
+
+print("Esto es lo que me llega por Get <br/>");
+
 $nombres = [
     $_GET['persona1'],
     $_GET['persona2'],
@@ -15,7 +18,7 @@ $nombres = [
     $_GET['persona4'],
     $_GET['persona5']
 ];
-
+//Convierto los valores que recogí antes en floats
 $alturas = [
     floatval($_GET['altura1']),
     floatval($_GET['altura2']),
@@ -31,7 +34,7 @@ $altura_media_redondeada = round($altura_media, 1);
 // Encuentro al más alto
 $indice_mas_alto = array_search(max($alturas), $alturas);
 $nombre_mas_alto = $nombres[$indice_mas_alto];
-$altura_mas_alta = intval($alturas[$indice_mas_alto]);
+$altura_mas_alta = (int)($alturas[$indice_mas_alto]);
 
 // Muestro los resultados
 echo "<h1>Resultados</h1>";
