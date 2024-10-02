@@ -15,12 +15,12 @@
         <form method="get" action="formulario_select_radio.php">
             <div class="mb-3 mt-4 col-sm-5">
                 <label for="nif" class="form-label">NIF</label>
-                <input type="text" class="form-control input-small" id="nif" name="nif" aria-describedby="Primer número">
+                <input type="text" class="form-control input-small" id="nif" name="nif" aria-describedby="NIF">
 
             </div>
             <div class="mb-3 mt-4 col-sm-5">
                 <label for="telefono" class="form-label">Teléfono</label>
-                <input type="number" class="form-control input-small" id="telefono" name="telefono" aria-describedby="Segundo número">
+                <input type="number" class="form-control input-small" id="telefono" name="telefono" aria-describedby="Telefono">
 
             </div>
 
@@ -43,31 +43,13 @@
                     ?>
                 </select>
             </div>
-            <div class="form-check-inline">
-                <label class="from-check-label" for="vehiculo">Vehículo</label>
-                <input class="form-check-input" type="radio" name="vehiculo" id="barco">
-                <label class="form-check-label" for="barco">
-                    Barco
-                </label>
-            </div>
-            <div class="form-check-inline">
-                <input class="form-check-input" type="radio" name="vehiculo" id="coche" checked>
-                <label class="form-check-label" for="coche">
-                    Coche
-                </label>
-            </div>
-            <div class="form-check-inline">
-                <input class="form-check-input" type="radio" name="vehiculo" id="moto" checked>
-                <label class="form-check-label" for="moto">
-                    Moto
-                </label>
-            </div>
-            <div class="form-check-inline">
-                <input class="form-check-input" type="radio" name="vehiculo" id="avion" checked>
-                <label class="form-check-label" for="avion">
-                    Avión
-                </label>
-            </div>
+            <label for="">Vehículo</label> <br>
+            <input name="vehiculo" type="radio" value="Coche">
+            <label for="">Coche</label> <br>
+            <input name="vehiculo" type="radio" value="Moto">
+            <label for="">Moto</label> <br>
+            <input name="vehiculo" type="radio" value="Bici">
+            <label for="">Bici</label> <br>
             </br>
             </br>
             <button type="submit" class="btn btn-primary">Aceptar</button>
