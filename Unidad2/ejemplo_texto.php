@@ -11,6 +11,9 @@
 
     <?php
 
+    /**
+     * Reverses a given string.
+     */
     function inverso($cadena)
     {
         $cad_inversa = "";
@@ -26,19 +29,35 @@
     }
 
 
+
+    /**
+     * Comprueba si una palabra es palindromo
+     *
+     * @param string $palabra La palabra a comprobar
+     * @return boolean True si es palindromo, false en caso contrario
+     */
     function esPalindromo($palabra)
     {
         //Comprobamos si es par o impar
+        //Tendremos que recorrer la cadena hasta la mistad solo, si es impar , hasta la mitad -1
+        //Al conventir a  entero hacemos que siendo impar sea uno menos 
+        //es decir si tiene 5 caracteres la mitad es 2.5 al truncar convirtiendolo a entero
+        //se queda en 2
         $mitad = (int)strlen($palabra) / 2;
 
+        //Por defecto 
         $esPal = true;
         //Recorremos todas las letras y comprobamos si son iguales a sus simetricas 
-        for ($i = 0; $i < $mitad; $i++) {
+        for ($i = 0; $i <= $mitad; $i++) {
+            //Comparamos letra a letra la posicion actual del indice i con
+            //su inversa, que sera la última posición de la cadena (strlen -1) menos la i
             if ($palabra[$i] != $palabra[strlen($palabra) - 1 - $i]) {
                 $esPal = false;
+                return $esPal;
             }
-            // 
         }
+        //Si llega al final del bucle sin salir implica que todas las letras son iguales
+        return $esPal;
     }
     //Este fichero recibe de un formulario html dos datos, una palabra con un type text
     //y un texto de varias lineas con un type textarea y un checkbox que diga si ignora o no mayusculas
@@ -49,7 +68,10 @@
 
     if (isset($_POST["palabra"])) $palabra_buscada = $_POST["palabra"];
     if (isset($_POST["txtobservaciones"])) $texto = $_POST["txtobservaciones"];
-    if (isset($_POST["IngorarMayusculas"])) $ignorarMayusculas = $_POST["IngorarMayusculas"];
+    //Diferencias mayusculas es un checkbox, si no lo marco llega como null
+    //Por lo cual isset da false
+    if (isset($_POST["IngorarMayusculas"])) $ignorarMayusculas = true;
+    else $ignorarMayusculas = false;
 
 
     //Separamos en lineas
@@ -85,13 +107,29 @@
         $num_frases = $num_Palabras + count(explode(".", $linea)) - 1;
 
         foreach ($palabras as $palabra) {
+
+            $palabra = trim($palabra);
+            echo "-" . $palabra . "</br>";
+
+            //Si el checkbox de ignorar mayusculas esta marcado lo pasamos todo a minisculas
+            if ($ignorarMayusculas) {
+
+                $palabra = strtolower($palabra);
+                $palabra_buscada = strtolower($palabra_buscada);
+            }
             if ($palabra == $palabra_buscada) {
                 $num_palabra_buscar++;
+            }
 
-                //Es un palindromo 
-                if (inverso($palabra) == $palabra) {
-                    $num_palindromos++;
-                }
+            //Es un palindromo 
+            if (inverso($palabra) == $palabra) {
+                $num_palindromos++;
+                echo $palabra . "Es palindromo </br>";
+            }
+
+            //Comprobamos con nuestra funcion si la palabra actual es un palindromo
+            if (esPalindromo($palabra)) {
+                $num_palindromos++;
             }
         }
     }
@@ -102,6 +140,9 @@
     //Guardamos la cantidad de palabras
     $resultado["numPalabras"] = count($palabras) + 1;
     $resultado["numFrases"] = $num_frases;
+    $resultado["numPalabraBuscada"] = $num_palabra_buscar;
+    $resultado["numPalindromos"] = $num_palindromos;
+    $resultado["numPalindromosV2"] = $num_palindromosV2;
 
 
 
