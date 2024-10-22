@@ -21,7 +21,7 @@
      * debe de tener un diseño cuco con bootstrap
      * 
      * 
-     * El program php debe de realizar lo siguiente 
+     * El programa php debe de realizar lo siguiente 
      * la suma de todos lo enteros y los float, por separado y juntos
      * La media de todos los números si el checkbox media esta marcado
      * La sucesión aritmetica hasta el número definido por el range, 10 valores, si el checkbox esta marcado
